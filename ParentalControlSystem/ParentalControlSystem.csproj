@@ -162,5 +162,20 @@
   <ItemGroup>
     <None Include="Resources\exit_icon_48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2991000_document_file_keyword_office_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\299084_book_address_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\52631_cd_disc_install_setup_software_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

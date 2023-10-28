@@ -45,29 +45,32 @@ namespace ParentalControlSystem
             this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
             this.btnHelp = new System.Windows.Forms.RibbonButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
+            this.Settings = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
+            this.chkBlockInternet = new System.Windows.Forms.RibbonCheckBox();
+            this.chkBlockApps = new System.Windows.Forms.RibbonCheckBox();
+            this.chkLimittedCompUse = new System.Windows.Forms.RibbonCheckBox();
+            this.ribbonPanel8 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
+            this.btnHelp2 = new System.Windows.Forms.RibbonButton();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonTab3 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
             this.btnHome = new System.Windows.Forms.RibbonButton();
             this.btnOn = new System.Windows.Forms.RibbonButton();
             this.btnOff = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
-            this.Settings = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel8 = new System.Windows.Forms.RibbonPanel();
-            this.btnExit = new System.Windows.Forms.RibbonButton();
             this.ribbonTab4 = new System.Windows.Forms.RibbonTab();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.chkBlockInternet = new System.Windows.Forms.RibbonCheckBox();
-            this.chkBlockApps = new System.Windows.Forms.RibbonCheckBox();
-            this.chkLimittedCompUse = new System.Windows.Forms.RibbonCheckBox();
             this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
-            this.btnHelp2 = new System.Windows.Forms.RibbonButton();
             this.btnAbout2 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -170,30 +173,107 @@ namespace ParentalControlSystem
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // ribbonButton2
+            // ribbonPanel6
             // 
-            this.ribbonButton2.Image = global::ParentalControlSystem.Properties.Resources._299110_check_sign_icon;
-            this.ribbonButton2.LargeImage = global::ParentalControlSystem.Properties.Resources._299110_check_sign_icon;
-            this.ribbonButton2.Name = "ribbonButton2";
-            this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
-            this.ribbonButton2.Text = "On";
+            this.ribbonPanel6.Items.Add(this.Settings);
+            this.ribbonPanel6.Items.Add(this.ribbonButton6);
+            this.ribbonPanel6.Items.Add(this.ribbonButton4);
+            this.ribbonPanel6.Items.Add(this.ribbonButton5);
+            this.ribbonPanel6.Name = "ribbonPanel6";
+            this.ribbonPanel6.Text = "Settings";
             // 
-            // ribbonButton3
+            // Settings
             // 
-            this.ribbonButton3.Image = global::ParentalControlSystem.Properties.Resources._299051_ban_sign_icon;
-            this.ribbonButton3.LargeImage = global::ParentalControlSystem.Properties.Resources._299051_ban_sign_icon;
-            this.ribbonButton3.Name = "ribbonButton3";
-            this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
-            this.ribbonButton3.Text = "Off";
+            this.Settings.Image = global::ParentalControlSystem.Properties.Resources._379393_settings_icon;
+            this.Settings.LargeImage = global::ParentalControlSystem.Properties.Resources._379393_settings_icon;
+            this.Settings.Name = "Settings";
+            this.Settings.SmallImage = ((System.Drawing.Image)(resources.GetObject("Settings.SmallImage")));
+            this.Settings.Text = "Thiết lập";
             // 
-            // ribbonButton1
+            // ribbonButton6
             // 
-            this.ribbonButton1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.Image")));
-            this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
-            this.ribbonButton1.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.ribbonButton1.Name = "ribbonButton1";
-            this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
-            this.ribbonButton1.Text = "Exit";
+            this.ribbonButton6.Image = global::ParentalControlSystem.Properties.Resources._52631_cd_disc_install_setup_software_icon;
+            this.ribbonButton6.LargeImage = global::ParentalControlSystem.Properties.Resources._52631_cd_disc_install_setup_software_icon;
+            this.ribbonButton6.Name = "ribbonButton6";
+            this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
+            this.ribbonButton6.Text = "Phần mềm";
+            // 
+            // ribbonButton4
+            // 
+            this.ribbonButton4.Image = global::ParentalControlSystem.Properties.Resources.time;
+            this.ribbonButton4.LargeImage = global::ParentalControlSystem.Properties.Resources.time;
+            this.ribbonButton4.Name = "ribbonButton4";
+            this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
+            this.ribbonButton4.Text = "Thời gian dùng máy";
+            // 
+            // ribbonButton5
+            // 
+            this.ribbonButton5.Image = global::ParentalControlSystem.Properties.Resources._299084_book_address_icon;
+            this.ribbonButton5.LargeImage = global::ParentalControlSystem.Properties.Resources._299084_book_address_icon;
+            this.ribbonButton5.Name = "ribbonButton5";
+            this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
+            this.ribbonButton5.Text = "Từ khóa";
+            // 
+            // ribbonPanel7
+            // 
+            this.ribbonPanel7.Items.Add(this.chkBlockInternet);
+            this.ribbonPanel7.Items.Add(this.chkBlockApps);
+            this.ribbonPanel7.Items.Add(this.chkLimittedCompUse);
+            this.ribbonPanel7.Name = "ribbonPanel7";
+            this.ribbonPanel7.Text = "Quick settings";
+            // 
+            // chkBlockInternet
+            // 
+            this.chkBlockInternet.Name = "chkBlockInternet";
+            this.chkBlockInternet.Text = "Ngắt kết nối Internet";
+            // 
+            // chkBlockApps
+            // 
+            this.chkBlockApps.Name = "chkBlockApps";
+            this.chkBlockApps.Text = "Cấm sử dụng phần mềm";
+            // 
+            // chkLimittedCompUse
+            // 
+            this.chkLimittedCompUse.Name = "chkLimittedCompUse";
+            this.chkLimittedCompUse.Text = "Sử dụng máy tính có giới hạn";
+            // 
+            // ribbonPanel8
+            // 
+            this.ribbonPanel8.Items.Add(this.ribbonButton8);
+            this.ribbonPanel8.Name = "ribbonPanel8";
+            this.ribbonPanel8.Text = "System";
+            // 
+            // ribbonButton8
+            // 
+            this.ribbonButton8.Image = global::ParentalControlSystem.Properties.Resources.exit_icon_48;
+            this.ribbonButton8.LargeImage = global::ParentalControlSystem.Properties.Resources.exit_icon_48;
+            this.ribbonButton8.Name = "ribbonButton8";
+            this.ribbonButton8.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.SmallImage")));
+            this.ribbonButton8.Text = "Exit";
+            this.ribbonButton8.Click += new System.EventHandler(this.ribbonButton8_Click);
+            // 
+            // ribbonPanel10
+            // 
+            this.ribbonPanel10.Items.Add(this.btnHelp2);
+            this.ribbonPanel10.Name = "ribbonPanel10";
+            this.ribbonPanel10.Text = "Trợ giúp";
+            // 
+            // btnHelp2
+            // 
+            this.btnHelp2.Image = global::ParentalControlSystem.Properties.Resources.help;
+            this.btnHelp2.LargeImage = global::ParentalControlSystem.Properties.Resources.help;
+            this.btnHelp2.Name = "btnHelp2";
+            this.btnHelp2.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnHelp2.SmallImage")));
+            this.btnHelp2.Text = "Help";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 167);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Size = new System.Drawing.Size(1002, 545);
+            this.splitContainer1.SplitterDistance = 334;
+            this.splitContainer1.TabIndex = 1;
             // 
             // ribbon1
             // 
@@ -242,6 +322,7 @@ namespace ParentalControlSystem
             this.btnHome.Name = "btnHome";
             this.btnHome.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnHome.SmallImage")));
             this.btnHome.Text = "Home";
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click_1);
             // 
             // btnOn
             // 
@@ -259,43 +340,6 @@ namespace ParentalControlSystem
             this.btnOff.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnOff.SmallImage")));
             this.btnOff.Text = "Off";
             // 
-            // ribbonPanel6
-            // 
-            this.ribbonPanel6.Items.Add(this.Settings);
-            this.ribbonPanel6.Name = "ribbonPanel6";
-            this.ribbonPanel6.Text = "Settings";
-            // 
-            // Settings
-            // 
-            this.Settings.Image = global::ParentalControlSystem.Properties.Resources._379393_settings_icon;
-            this.Settings.LargeImage = global::ParentalControlSystem.Properties.Resources._379393_settings_icon;
-            this.Settings.Name = "Settings";
-            this.Settings.SmallImage = ((System.Drawing.Image)(resources.GetObject("Settings.SmallImage")));
-            this.Settings.Text = "Thiết lập";
-            // 
-            // ribbonPanel7
-            // 
-            this.ribbonPanel7.Items.Add(this.chkBlockInternet);
-            this.ribbonPanel7.Items.Add(this.chkBlockApps);
-            this.ribbonPanel7.Items.Add(this.chkLimittedCompUse);
-            this.ribbonPanel7.Name = "ribbonPanel7";
-            this.ribbonPanel7.Text = "Quick settings";
-            // 
-            // ribbonPanel8
-            // 
-            this.ribbonPanel8.Items.Add(this.btnExit);
-            this.ribbonPanel8.Name = "ribbonPanel8";
-            this.ribbonPanel8.Text = "System";
-            // 
-            // btnExit
-            // 
-            this.btnExit.Image = global::ParentalControlSystem.Properties.Resources.exit_icon_48;
-            this.btnExit.LargeImage = global::ParentalControlSystem.Properties.Resources.exit_icon_48;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnExit.SmallImage")));
-            this.btnExit.Text = "Exit";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // ribbonTab4
             // 
             this.ribbonTab4.Name = "ribbonTab4";
@@ -303,49 +347,11 @@ namespace ParentalControlSystem
             this.ribbonTab4.Panels.Add(this.ribbonPanel10);
             this.ribbonTab4.Text = "Giới thiệu";
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 167);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(1002, 545);
-            this.splitContainer1.SplitterDistance = 334;
-            this.splitContainer1.TabIndex = 1;
-            // 
-            // chkBlockInternet
-            // 
-            this.chkBlockInternet.Name = "chkBlockInternet";
-            this.chkBlockInternet.Text = "Ngắt kết nối Internet";
-            // 
-            // chkBlockApps
-            // 
-            this.chkBlockApps.Name = "chkBlockApps";
-            this.chkBlockApps.Text = "Cấm sử dụng phần mềm";
-            // 
-            // chkLimittedCompUse
-            // 
-            this.chkLimittedCompUse.Name = "chkLimittedCompUse";
-            this.chkLimittedCompUse.Text = "Sử dụng máy tính có giới hạn";
-            // 
             // ribbonPanel9
             // 
             this.ribbonPanel9.Items.Add(this.btnAbout2);
             this.ribbonPanel9.Name = "ribbonPanel9";
             this.ribbonPanel9.Text = "Thông tin";
-            // 
-            // ribbonPanel10
-            // 
-            this.ribbonPanel10.Items.Add(this.btnHelp2);
-            this.ribbonPanel10.Name = "ribbonPanel10";
-            this.ribbonPanel10.Text = "Trợ giúp";
-            // 
-            // btnHelp2
-            // 
-            this.btnHelp2.Image = global::ParentalControlSystem.Properties.Resources.help;
-            this.btnHelp2.LargeImage = global::ParentalControlSystem.Properties.Resources.help;
-            this.btnHelp2.Name = "btnHelp2";
-            this.btnHelp2.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnHelp2.SmallImage")));
-            this.btnHelp2.Text = "Help";
             // 
             // btnAbout2
             // 
@@ -354,6 +360,31 @@ namespace ParentalControlSystem
             this.btnAbout2.Name = "btnAbout2";
             this.btnAbout2.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnAbout2.SmallImage")));
             this.btnAbout2.Text = "About";
+            // 
+            // ribbonButton2
+            // 
+            this.ribbonButton2.Image = global::ParentalControlSystem.Properties.Resources._299110_check_sign_icon;
+            this.ribbonButton2.LargeImage = global::ParentalControlSystem.Properties.Resources._299110_check_sign_icon;
+            this.ribbonButton2.Name = "ribbonButton2";
+            this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
+            this.ribbonButton2.Text = "On";
+            // 
+            // ribbonButton3
+            // 
+            this.ribbonButton3.Image = global::ParentalControlSystem.Properties.Resources._299051_ban_sign_icon;
+            this.ribbonButton3.LargeImage = global::ParentalControlSystem.Properties.Resources._299051_ban_sign_icon;
+            this.ribbonButton3.Name = "ribbonButton3";
+            this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
+            this.ribbonButton3.Text = "Off";
+            // 
+            // ribbonButton1
+            // 
+            this.ribbonButton1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.Image")));
+            this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
+            this.ribbonButton1.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.ribbonButton1.Name = "ribbonButton1";
+            this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
+            this.ribbonButton1.Text = "Exit";
             // 
             // frmMain
             // 
@@ -413,7 +444,6 @@ namespace ParentalControlSystem
         private System.Windows.Forms.RibbonButton Settings;
         private System.Windows.Forms.RibbonPanel ribbonPanel7;
         private System.Windows.Forms.RibbonPanel ribbonPanel8;
-        private System.Windows.Forms.RibbonButton btnExit;
         private System.Windows.Forms.RibbonCheckBox chkBlockInternet;
         private System.Windows.Forms.RibbonCheckBox chkBlockApps;
         private System.Windows.Forms.RibbonCheckBox chkLimittedCompUse;
@@ -421,6 +451,10 @@ namespace ParentalControlSystem
         private System.Windows.Forms.RibbonPanel ribbonPanel10;
         private System.Windows.Forms.RibbonButton btnHelp2;
         private System.Windows.Forms.RibbonButton btnAbout2;
+        private System.Windows.Forms.RibbonButton ribbonButton8;
+        private System.Windows.Forms.RibbonButton ribbonButton4;
+        private System.Windows.Forms.RibbonButton ribbonButton5;
+        private System.Windows.Forms.RibbonButton ribbonButton6;
     }
 }
 

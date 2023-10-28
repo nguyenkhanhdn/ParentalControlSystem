@@ -74,11 +74,11 @@ namespace ParentalControlSystem
 
         private void ribbon1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            //if (e.Button == MouseButtons.Left)
+            //{
+            //    ReleaseCapture();
+            //    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            //}
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -104,13 +104,20 @@ namespace ParentalControlSystem
             Properties.Settings.Default.Save();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+
+        private void ribbonButton8_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn chắc chắn muốn thoát chương trình?", "Parental Control System", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //MessageBox.Show("exit");
+            DialogResult yesNo = MessageBox.Show("Bạn chắc chắn muốn thoát chương trình?", "Parental Control System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if ( yesNo == DialogResult.Yes)
             {
                 Application.Exit();
             }
         }
 
+        private void btnHome_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Home");
+        }
     }
 }
