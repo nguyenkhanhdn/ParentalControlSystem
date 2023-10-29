@@ -119,5 +119,13 @@ namespace ParentalControlSystem
         {
             MessageBox.Show("Home");
         }
+
+        private void ribbonButton5_Click(object sender, EventArgs e)
+        {
+            ucKeywords ucKeywords = new ucKeywords();
+            ucKeywords.Dock = DockStyle.Fill;
+            this.splitContainer1.Panel1.Controls.Clear();
+            this.splitContainer1.Panel1.Controls.Add(ucKeywords);
+        }
     }
 }

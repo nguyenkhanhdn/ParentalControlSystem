@@ -213,6 +213,7 @@ namespace ParentalControlSystem
             this.ribbonButton5.Name = "ribbonButton5";
             this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
             this.ribbonButton5.Text = "Từ khóa";
+            this.ribbonButton5.Click += new System.EventHandler(this.ribbonButton5_Click);
             // 
             // ribbonPanel7
             // 
