@@ -44,6 +44,7 @@ namespace ParentalControlSystem
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -54,6 +55,7 @@ namespace ParentalControlSystem
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.label1);
@@ -107,11 +109,12 @@ namespace ParentalControlSystem
             // 
             // button2
             // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Image = global::ParentalControlSystem.Properties.Resources._299045_sign_error_icon;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(452, 207);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 67);
+            this.button2.Size = new System.Drawing.Size(176, 59);
             this.button2.TabIndex = 11;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
@@ -119,11 +122,12 @@ namespace ParentalControlSystem
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Image = global::ParentalControlSystem.Properties.Resources._299068_add_sign_icon;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(452, 120);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 71);
+            this.button1.Size = new System.Drawing.Size(176, 63);
             this.button1.TabIndex = 10;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,11 +135,12 @@ namespace ParentalControlSystem
             // 
             // btnClose
             // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Image = global::ParentalControlSystem.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(452, 371);
+            this.btnClose.Location = new System.Drawing.Point(452, 377);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(176, 67);
+            this.btnClose.Size = new System.Drawing.Size(176, 59);
             this.btnClose.TabIndex = 13;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;

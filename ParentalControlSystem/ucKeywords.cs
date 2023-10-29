@@ -14,6 +14,11 @@ namespace ParentalControlSystem
     public partial class ucKeywords : UserControl
     {
         string xmlFile = "..\\..\\keywords.xml";
+
+        public ucKeywords()
+        {
+            InitializeComponent();
+        }
         private void LoadXML()
         {
             this.listBox1.Items.Clear();
@@ -25,11 +30,6 @@ namespace ParentalControlSystem
             {
                 this.listBox1.Items.Add(n.InnerText);
             }
-        }
-
-        public ucKeywords()
-        {
-            InitializeComponent();
         }
 
         private void ucKeywords_Load(object sender, EventArgs e)
