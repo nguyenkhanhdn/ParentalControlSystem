@@ -333,6 +333,26 @@ namespace ParentalControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap parentalcontrolsys {
+            get {
+                object obj = ResourceManager.GetObject("parentalcontrolsys", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2023_10_29_163935 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2023-10-29 163935", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shield {
             get {
                 object obj = ResourceManager.GetObject("shield", resourceCulture);

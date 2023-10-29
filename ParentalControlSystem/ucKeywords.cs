@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace ParentalControlSystem
 {
@@ -20,6 +21,23 @@ namespace ParentalControlSystem
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void ucKeywords_Load(object sender, EventArgs e)
+        {
+            LoadXML();
+        }
+        private void LoadXML()
+        {
+            this.listBox1.Items.Clear();
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load("..\\..\\apps.xml");
+            XmlNode root = doc.DocumentElement;
+            foreach (XmlNode n in root.ChildNodes)
+            {
+                this.listBox1.Items.Add(n.InnerText);
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <apps>
-	<app>chrome</app>
-	<app>Microsoft edge</app>
-	<app>Firefox</app>
-	<app>Blue stack</app>
+	<app id="1">chrome</app>
+	<app id="2">Microsoft edge</app>
+	<app id="3">Firefox</app>
+	<app id="4">Blue stack</app>
 </apps>

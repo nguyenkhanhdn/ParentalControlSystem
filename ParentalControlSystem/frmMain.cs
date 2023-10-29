@@ -39,7 +39,7 @@ namespace ParentalControlSystem
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            this.splitContainer1.Panel2Collapsed = true;
+            //this.splitContainer1.Panel2Collapsed = true;
 
             //Get the values in settings
             bool blncomputer = Properties.Settings.Default.ForbidApplication;
@@ -58,8 +58,8 @@ namespace ParentalControlSystem
             //Hiển thị form /control để thiết lập
             ucThietlap ucsetting = new ucThietlap();
             ucsetting.Dock = DockStyle.Fill;
-            splitContainer1.Panel1.Controls.Clear();
-            splitContainer1.Panel1.Controls.Add(ucsetting);
+            splitContainer1.Panel2.Controls.Clear();
+            splitContainer1.Panel2.Controls.Add(ucsetting);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -122,10 +122,15 @@ namespace ParentalControlSystem
 
         private void ribbonButton5_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void ribbonButton6_Click(object sender, EventArgs e)
+        {
             ucKeywords ucKeywords = new ucKeywords();
             ucKeywords.Dock = DockStyle.Fill;
-            this.splitContainer1.Panel1.Controls.Clear();
-            this.splitContainer1.Panel1.Controls.Add(ucKeywords);
+            this.splitContainer1.Panel2.Controls.Clear();
+            this.splitContainer1.Panel2.Controls.Add(ucKeywords);
         }
     }
 }

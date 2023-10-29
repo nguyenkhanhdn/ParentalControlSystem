@@ -71,8 +71,11 @@ namespace ParentalControlSystem
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonTab1
@@ -197,6 +200,7 @@ namespace ParentalControlSystem
             this.ribbonButton6.Name = "ribbonButton6";
             this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
             this.ribbonButton6.Text = "Phần mềm";
+            this.ribbonButton6.Click += new System.EventHandler(this.ribbonButton6_Click);
             // 
             // ribbonButton4
             // 
@@ -272,8 +276,13 @@ namespace ParentalControlSystem
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 167);
             this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Size = new System.Drawing.Size(1002, 545);
-            this.splitContainer1.SplitterDistance = 334;
+            this.splitContainer1.SplitterDistance = 321;
+            this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 1;
             // 
             // ribbon1
@@ -387,6 +396,16 @@ namespace ParentalControlSystem
             this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
             this.ribbonButton1.Text = "Exit";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ParentalControlSystem.Properties.Resources.parentalcontrolsys;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(321, 545);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -407,8 +426,10 @@ namespace ParentalControlSystem
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,6 +477,7 @@ namespace ParentalControlSystem
         private System.Windows.Forms.RibbonButton ribbonButton4;
         private System.Windows.Forms.RibbonButton ribbonButton5;
         private System.Windows.Forms.RibbonButton ribbonButton6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

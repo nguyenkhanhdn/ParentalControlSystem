@@ -189,6 +189,8 @@
   <ItemGroup>
     <Content Include="apps.xml" />
     <Content Include="keywords.xml" />
+    <None Include="Resources\parentalcontrolsys.png" />
+    <None Include="Resources\Screenshot 2023-10-29 163935.png" />
     <None Include="Resources\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
