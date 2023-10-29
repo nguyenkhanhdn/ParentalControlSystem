@@ -122,15 +122,18 @@ namespace ParentalControlSystem
 
         private void ribbonButton5_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void ribbonButton6_Click(object sender, EventArgs e)
-        {
             ucKeywords ucKeywords = new ucKeywords();
             ucKeywords.Dock = DockStyle.Fill;
             this.splitContainer1.Panel2.Controls.Clear();
             this.splitContainer1.Panel2.Controls.Add(ucKeywords);
+        }
+
+        private void ribbonButton6_Click(object sender, EventArgs e)
+        {
+            ucApps ucapps = new ucApps();
+            ucapps.Dock = DockStyle.Fill;
+            this.splitContainer1.Panel2.Controls.Clear();
+            this.splitContainer1.Panel2.Controls.Add(ucapps);
         }
     }
 }

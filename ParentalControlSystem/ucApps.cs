@@ -11,9 +11,23 @@ using System.Xml;
 
 namespace ParentalControlSystem
 {
-    public partial class ucKeywords : UserControl
+    public partial class ucApps : UserControl
     {
-        string xmlFile = "..\\..\\keywords.xml";
+        string xmlFile= "..\\..\\apps.xml";
+        public ucApps()
+        {
+            InitializeComponent();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void ucKeywords_Load(object sender, EventArgs e)
+        {
+            LoadXML();
+        }
         private void LoadXML()
         {
             this.listBox1.Items.Clear();
@@ -27,41 +41,14 @@ namespace ParentalControlSystem
             }
         }
 
-        public ucKeywords()
-        {
-            InitializeComponent();
-        }
-
-        private void ucKeywords_Load(object sender, EventArgs e)
-        {
-            LoadXML();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(xmlFile);
-            XmlNode root = doc.DocumentElement;
-
-            XmlElement el = doc.CreateElement("", "keyword", "");
-            el.InnerText = this.textBox1.Text;
-
-            root.InsertAfter(el, root.LastChild);
-            doc.Save(xmlFile);
-
-            LoadXML();
-            this.textBox1.Text = "";
-            this.textBox1.Focus();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItems.Count <= 0)
             {
-                MessageBox.Show("Bạn cần chọn từ khóa cần xóa", "Parental Control System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn cần chọn ứng dụng cần xóa", "Parental Control System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlFile);
             XmlNode root = doc.DocumentElement;
@@ -75,11 +62,24 @@ namespace ParentalControlSystem
             }
             doc.Save(xmlFile);
             LoadXML();
+            //MessageBox.Show("Removed");
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(xmlFile);
+            XmlNode root = doc.DocumentElement;
+
+            XmlElement el = doc.CreateElement("", "App", "");
+            el.InnerText = this.textBox1.Text;
+            
+            root.InsertAfter(el, root.LastChild);
+            doc.Save(xmlFile);
+
+            LoadXML();
+            this.textBox1.Text = "";
+            this.textBox1.Focus();
         }
     }
 }
