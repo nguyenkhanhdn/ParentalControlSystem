@@ -50,10 +50,6 @@ namespace ParentalControlSystem
             this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
-            this.chkBlockInternet = new System.Windows.Forms.RibbonCheckBox();
-            this.chkBlockApps = new System.Windows.Forms.RibbonCheckBox();
-            this.chkLimittedCompUse = new System.Windows.Forms.RibbonCheckBox();
             this.ribbonPanel8 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
@@ -111,20 +107,15 @@ namespace ParentalControlSystem
             // chkUseComputer
             // 
             this.chkUseComputer.Name = "chkUseComputer";
-            this.chkUseComputer.Text = "Sử dụng máy tính theo giờ";
-            this.chkUseComputer.CheckBoxCheckChanged += new System.EventHandler(this.chkUseComputer_CheckBoxCheckChanged);
             // 
             // chkForbidInternet
             // 
             this.chkForbidInternet.Name = "chkForbidInternet";
-            this.chkForbidInternet.Text = "Cấm truy cập internet";
-            this.chkForbidInternet.CheckBoxCheckChanged += new System.EventHandler(this.chkForbidInternet_CheckBoxCheckChanged);
             // 
             // chkBorbidApps
             // 
             this.chkBorbidApps.Name = "chkBorbidApps";
             this.chkBorbidApps.Text = "Tắt ứng dụng";
-            this.chkBorbidApps.CheckBoxCheckChanged += new System.EventHandler(this.chkBorbidApps_CheckBoxCheckChanged);
             // 
             // ribbonTab2
             // 
@@ -192,6 +183,7 @@ namespace ParentalControlSystem
             this.Settings.Name = "Settings";
             this.Settings.SmallImage = ((System.Drawing.Image)(resources.GetObject("Settings.SmallImage")));
             this.Settings.Text = "Thiết lập";
+            this.Settings.Click += new System.EventHandler(this.Settings_Click);
             // 
             // ribbonButton6
             // 
@@ -218,29 +210,6 @@ namespace ParentalControlSystem
             this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
             this.ribbonButton5.Text = "Từ khóa";
             this.ribbonButton5.Click += new System.EventHandler(this.ribbonButton5_Click);
-            // 
-            // ribbonPanel7
-            // 
-            this.ribbonPanel7.Items.Add(this.chkBlockInternet);
-            this.ribbonPanel7.Items.Add(this.chkBlockApps);
-            this.ribbonPanel7.Items.Add(this.chkLimittedCompUse);
-            this.ribbonPanel7.Name = "ribbonPanel7";
-            this.ribbonPanel7.Text = "Quick settings";
-            // 
-            // chkBlockInternet
-            // 
-            this.chkBlockInternet.Name = "chkBlockInternet";
-            this.chkBlockInternet.Text = "Ngắt kết nối Internet";
-            // 
-            // chkBlockApps
-            // 
-            this.chkBlockApps.Name = "chkBlockApps";
-            this.chkBlockApps.Text = "Cấm sử dụng phần mềm";
-            // 
-            // chkLimittedCompUse
-            // 
-            this.chkLimittedCompUse.Name = "chkLimittedCompUse";
-            this.chkLimittedCompUse.Text = "Sử dụng máy tính có giới hạn";
             // 
             // ribbonPanel8
             // 
@@ -327,7 +296,6 @@ namespace ParentalControlSystem
             this.ribbonTab3.Name = "ribbonTab3";
             this.ribbonTab3.Panels.Add(this.ribbonPanel5);
             this.ribbonTab3.Panels.Add(this.ribbonPanel6);
-            this.ribbonTab3.Panels.Add(this.ribbonPanel7);
             this.ribbonTab3.Panels.Add(this.ribbonPanel8);
             this.ribbonTab3.Text = "Trang chủ";
             // 
@@ -384,6 +352,7 @@ namespace ParentalControlSystem
             this.btnAbout2.Name = "btnAbout2";
             this.btnAbout2.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnAbout2.SmallImage")));
             this.btnAbout2.Text = "About";
+            this.btnAbout2.Click += new System.EventHandler(this.btnAbout2_Click);
             // 
             // ribbonButton2
             // 
@@ -470,9 +439,6 @@ namespace ParentalControlSystem
         private System.Windows.Forms.RibbonButton Settings;
         private System.Windows.Forms.RibbonPanel ribbonPanel7;
         private System.Windows.Forms.RibbonPanel ribbonPanel8;
-        private System.Windows.Forms.RibbonCheckBox chkBlockInternet;
-        private System.Windows.Forms.RibbonCheckBox chkBlockApps;
-        private System.Windows.Forms.RibbonCheckBox chkLimittedCompUse;
         private System.Windows.Forms.RibbonPanel ribbonPanel9;
         private System.Windows.Forms.RibbonPanel ribbonPanel10;
         private System.Windows.Forms.RibbonButton btnHelp2;

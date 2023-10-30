@@ -253,6 +253,16 @@ namespace ParentalControlSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _52631_cd_disc_install_setup_software_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("52631_cd_disc_install_setup_software_icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _6035_exit_icon {
             get {
                 object obj = ResourceManager.GetObject("6035_exit_icon", resourceCulture);
@@ -276,6 +286,16 @@ namespace ParentalControlSystem.Properties {
         internal static System.Drawing.Bitmap _9004742_timer_time_clock_alarm_icon {
             get {
                 object obj = ResourceManager.GetObject("9004742_timer_time_clock_alarm_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _9004742_timer_time_clock_alarm_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("9004742_timer_time_clock_alarm_icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

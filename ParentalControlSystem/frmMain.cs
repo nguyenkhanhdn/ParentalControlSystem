@@ -38,20 +38,7 @@ namespace ParentalControlSystem
         {
         }
         private void frmMain_Load(object sender, EventArgs e)
-        {
-            //this.splitContainer1.Panel2Collapsed = true;
-
-            //Get the values in settings
-            bool blncomputer = Properties.Settings.Default.ForbidApplication;
-            bool blninternet = Properties.Settings.Default.ForbidInternet;
-            bool blnapplication = Properties.Settings.Default.ForbidApplication;
-
-            //Setup for controls
-            chkBorbidApps.Checked = blnapplication;
-            chkForbidInternet.Checked = blninternet;
-            chkUseComputer.Checked = blncomputer;
-
-
+        {            
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
@@ -85,26 +72,6 @@ namespace ParentalControlSystem
         {
             
         }
-
-        private void chkUseComputer_CheckBoxCheckChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.ForbidComputer = chkUseComputer.Checked;
-            Properties.Settings.Default.Save();
-        }
-
-        private void chkForbidInternet_CheckBoxCheckChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.ForbidInternet = chkForbidInternet.Checked;
-            Properties.Settings.Default.Save();
-        }
-
-        private void chkBorbidApps_CheckBoxCheckChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.ForbidApplication = chkBorbidApps.Checked;
-            Properties.Settings.Default.Save();
-        }
-
-
         private void ribbonButton8_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("exit");
@@ -134,6 +101,24 @@ namespace ParentalControlSystem
             ucapps.Dock = DockStyle.Fill;
             this.splitContainer1.Panel2.Controls.Clear();
             this.splitContainer1.Panel2.Controls.Add(ucapps);
+        }
+
+        
+
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            //Hiển thị form /control để thiết lập
+            ucSettings ucsetting = new ucSettings();
+            ucsetting.Dock = DockStyle.Fill;
+            splitContainer1.Panel2.Controls.Clear();
+            splitContainer1.Panel2.Controls.Add(ucsetting);
+        }
+
+        private void btnAbout2_Click(object sender, EventArgs e)
+        {
+            AboutBox1 about = new AboutBox1();
+            about.ShowDialog();
         }
     }
 }

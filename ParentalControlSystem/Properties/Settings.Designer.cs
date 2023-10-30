@@ -50,36 +50,36 @@ namespace ParentalControlSystem.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ForbidComputer {
+        public bool Computer {
             get {
-                return ((bool)(this["ForbidComputer"]));
+                return ((bool)(this["Computer"]));
             }
             set {
-                this["ForbidComputer"] = value;
+                this["Computer"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ForbidInternet {
+        public bool Internet {
             get {
-                return ((bool)(this["ForbidInternet"]));
+                return ((bool)(this["Internet"]));
             }
             set {
-                this["ForbidInternet"] = value;
+                this["Internet"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ForbidApplication {
+        public bool Application {
             get {
-                return ((bool)(this["ForbidApplication"]));
+                return ((bool)(this["Application"]));
             }
             set {
-                this["ForbidApplication"] = value;
+                this["Application"] = value;
             }
         }
     }

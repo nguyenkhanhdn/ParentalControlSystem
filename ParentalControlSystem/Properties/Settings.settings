@@ -8,13 +8,13 @@
     <Setting Name="Timer" Type="System.String" Scope="User">
       <Value Profile="(Default)">15000</Value>
     </Setting>
-    <Setting Name="ForbidComputer" Type="System.Boolean" Scope="User">
+    <Setting Name="Computer" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ForbidInternet" Type="System.Boolean" Scope="User">
+    <Setting Name="Internet" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ForbidApplication" Type="System.Boolean" Scope="User">
+    <Setting Name="Application" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

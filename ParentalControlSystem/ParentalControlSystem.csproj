@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,12 +75,21 @@
     <Compile Include="ucKeywords.Designer.cs">
       <DependentUpon>ucKeywords.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSettings.Designer.cs">
+      <DependentUpon>ucSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucThietlap.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucThietlap.Designer.cs">
       <DependentUpon>ucThietlap.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucKeywords.resx">
       <DependentUpon>ucKeywords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSettings.resx">
+      <DependentUpon>ucSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucThietlap.resx">
       <DependentUpon>ucThietlap.cs</DependentUpon>
@@ -198,6 +216,8 @@
   <ItemGroup>
     <Content Include="apps.xml" />
     <Content Include="keywords.xml" />
+    <None Include="Resources\9004742_timer_time_clock_alarm_icon1.png" />
+    <None Include="Resources\52631_cd_disc_install_setup_software_icon1.png" />
     <None Include="Resources\parentalcontrolsys.png" />
     <None Include="Resources\Screenshot 2023-10-29 163935.png" />
     <None Include="Resources\close.png" />
