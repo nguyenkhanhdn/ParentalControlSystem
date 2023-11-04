@@ -82,5 +82,17 @@ namespace ParentalControlSystem.Properties {
                 this["Application"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Network {
+            get {
+                return ((bool)(this["Network"]));
+            }
+            set {
+                this["Network"] = value;
+            }
+        }
     }
 }

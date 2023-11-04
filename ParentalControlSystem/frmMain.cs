@@ -38,7 +38,29 @@ namespace ParentalControlSystem
         {
         }
         private void frmMain_Load(object sender, EventArgs e)
-        {            
+        {
+            try
+            {
+                bool network = Properties.Settings.Default.Network;
+                if (network)
+                {
+                    ParentalController.AddFirewallRules();
+                    this.btnOff.Enabled = false;
+                    this.btnOn.Enabled = true;
+                }
+                else
+                {
+                    ParentalController.RemoveFirewallRules();
+                    this.btnOff.Enabled = true;
+                    this.btnOn.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Lỗi xảy ra: " + ex.Message,"Parental Control System",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
@@ -51,12 +73,20 @@ namespace ParentalControlSystem
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //string hh = DateTime.Now.Hour.ToString();
-            //string mm = DateTime.Now.Minute.ToString();
-            //string ss = DateTime.Now.Second.ToString();
+            //bool internetPolicy = Properties.Settings.Default.Internet;
+            bool appPolicy = Properties.Settings.Default.Application;
+            //bool computerPolicy = Properties.Settings.Default.Computer;
 
-            //string clock = hh + ":" + mm + ":" + ss;
-            //this.Text = "Parental Control System" + " - " + clock;
+            //this.label1.Text = internetPolicy.ToString();
+            //this.label2.Text = appPolicy.ToString();
+            //ParentalController.BlockInternet(internetPolicy);
+
+            if (appPolicy)
+            {
+                ParentalController.BlockApps("msedge");
+            }
+
+
         }
 
         private void ribbon1_MouseDown(object sender, MouseEventArgs e)
@@ -103,9 +133,6 @@ namespace ParentalControlSystem
             this.splitContainer1.Panel2.Controls.Add(ucapps);
         }
 
-        
-
-
         private void Settings_Click(object sender, EventArgs e)
         {
             //Hiển thị form /control để thiết lập
@@ -119,6 +146,37 @@ namespace ParentalControlSystem
         {
             AboutBox1 about = new AboutBox1();
             about.ShowDialog();
+        }
+
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            ParentalController.AddFirewallRules();
+            Properties.Settings.Default.Network = true;
+            Properties.Settings.Default.Save();
+            this.btnOff.Enabled = false;
+            this.btnOn.Enabled = true;
+        }
+
+        private void btnOn_Click(object sender, EventArgs e)
+        {
+            ParentalController.RemoveFirewallRules();
+            Properties.Settings.Default.Network = false;
+            Properties.Settings.Default.Save();
+            //Add policies
+            this.btnOff.Enabled = true;
+            this.btnOn.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ParentalController.AddFirewallRules();
+            MessageBox.Show("Added");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ParentalController.RemoveFirewallRules();
+            MessageBox.Show("Removed");
         }
     }
 }
