@@ -94,5 +94,29 @@ namespace ParentalControlSystem.Properties {
                 this["Network"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Keywords {
+            get {
+                return ((bool)(this["Keywords"]));
+            }
+            set {
+                this["Keywords"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Time {
+            get {
+                return ((bool)(this["Time"]));
+            }
+            set {
+                this["Time"] = value;
+            }
+        }
     }
 }

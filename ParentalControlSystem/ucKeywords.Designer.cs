@@ -49,7 +49,7 @@ namespace ParentalControlSystem
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(854, 640);
+            this.groupBox1.Size = new System.Drawing.Size(656, 640);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -66,7 +66,7 @@ namespace ParentalControlSystem
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(848, 609);
+            this.panel1.Size = new System.Drawing.Size(650, 609);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -85,13 +85,13 @@ namespace ParentalControlSystem
             this.listBox1.ItemHeight = 26;
             this.listBox1.Location = new System.Drawing.Point(42, 70);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(361, 368);
+            this.listBox1.Size = new System.Drawing.Size(303, 368);
             this.listBox1.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(447, 30);
+            this.label1.Location = new System.Drawing.Point(372, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 26);
             this.label1.TabIndex = 8;
@@ -102,7 +102,7 @@ namespace ParentalControlSystem
             this.textBox1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(452, 71);
+            this.textBox1.Location = new System.Drawing.Point(377, 73);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(176, 35);
             this.textBox1.TabIndex = 9;
@@ -112,7 +112,7 @@ namespace ParentalControlSystem
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Image = global::ParentalControlSystem.Properties.Resources._299045_sign_error_icon;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(452, 207);
+            this.button2.Location = new System.Drawing.Point(377, 209);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(176, 59);
             this.button2.TabIndex = 11;
@@ -125,7 +125,7 @@ namespace ParentalControlSystem
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Image = global::ParentalControlSystem.Properties.Resources._299068_add_sign_icon;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(452, 120);
+            this.button1.Location = new System.Drawing.Point(377, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(176, 63);
             this.button1.TabIndex = 10;
@@ -138,7 +138,7 @@ namespace ParentalControlSystem
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Image = global::ParentalControlSystem.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(452, 377);
+            this.btnClose.Location = new System.Drawing.Point(377, 379);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(176, 59);
             this.btnClose.TabIndex = 13;
@@ -154,7 +154,7 @@ namespace ParentalControlSystem
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucKeywords";
-            this.Size = new System.Drawing.Size(854, 640);
+            this.Size = new System.Drawing.Size(656, 640);
             this.Load += new System.EventHandler(this.ucKeywords_Load);
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

@@ -25,23 +25,19 @@ namespace ParentalControlSystem
             InitializeComponent();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Thông báo: nút home được nhấn", "Parental Control System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void mnuExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-        }
         private void frmMain_Load(object sender, EventArgs e)
         {
             try
             {
                 bool network = Properties.Settings.Default.Network;
+                bool application = Properties.Settings.Default.Application;
+                if (application)
+                {
+                }
+                else
+                {
+                }
+
                 if (network)
                 {
                     ParentalController.AddFirewallRules();
@@ -57,35 +53,16 @@ namespace ParentalControlSystem
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Lỗi xảy ra: " + ex.Message,"Parental Control System",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             
         }
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            //Hiển thị form /control để thiết lập
-            ucThietlap ucsetting = new ucThietlap();
-            ucsetting.Dock = DockStyle.Fill;
-            splitContainer1.Panel2.Controls.Clear();
-            splitContainer1.Panel2.Controls.Add(ucsetting);
-        }
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //bool internetPolicy = Properties.Settings.Default.Internet;
-            bool appPolicy = Properties.Settings.Default.Application;
-            //bool computerPolicy = Properties.Settings.Default.Computer;
-
-            //this.label1.Text = internetPolicy.ToString();
-            //this.label2.Text = appPolicy.ToString();
-            //ParentalController.BlockInternet(internetPolicy);
-
-            if (appPolicy)
-            {
-                ParentalController.BlockApps("msedge");
-            }
-
+            bool apps = Properties.Settings.Default.Application;
+            bool keywords = Properties.Settings.Default.Keywords;
+            bool time = Properties.Settings.Default.Time;
 
         }
 
@@ -98,56 +75,11 @@ namespace ParentalControlSystem
             //}
         }
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
-        private void ribbonButton8_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show("exit");
-            DialogResult yesNo = MessageBox.Show("Bạn chắc chắn muốn thoát chương trình?", "Parental Control System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if ( yesNo == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void btnHome_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Home");
-        }
-
-        private void ribbonButton5_Click(object sender, EventArgs e)
-        {
-            ucKeywords ucKeywords = new ucKeywords();
-            ucKeywords.Dock = DockStyle.Fill;
-            this.splitContainer1.Panel2.Controls.Clear();
-            this.splitContainer1.Panel2.Controls.Add(ucKeywords);
-        }
-
-        private void ribbonButton6_Click(object sender, EventArgs e)
-        {
-            ucApps ucapps = new ucApps();
-            ucapps.Dock = DockStyle.Fill;
-            this.splitContainer1.Panel2.Controls.Clear();
-            this.splitContainer1.Panel2.Controls.Add(ucapps);
-        }
-
-        private void Settings_Click(object sender, EventArgs e)
-        {
-            //Hiển thị form /control để thiết lập
-            ucSettings ucsetting = new ucSettings();
-            ucsetting.Dock = DockStyle.Fill;
-            splitContainer1.Panel2.Controls.Clear();
-            splitContainer1.Panel2.Controls.Add(ucsetting);
-        }
-
         private void btnAbout2_Click(object sender, EventArgs e)
         {
             AboutBox1 about = new AboutBox1();
             about.ShowDialog();
         }
-
         private void btnOff_Click(object sender, EventArgs e)
         {
             ParentalController.AddFirewallRules();
@@ -166,17 +98,56 @@ namespace ParentalControlSystem
             this.btnOff.Enabled = true;
             this.btnOn.Enabled = false;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTime_Click(object sender, EventArgs e)
         {
-            ParentalController.AddFirewallRules();
-            MessageBox.Show("Added");
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnApps_Click(object sender, EventArgs e)
         {
-            ParentalController.RemoveFirewallRules();
-            MessageBox.Show("Removed");
+            ucApps ucapps = new ucApps();
+            ucapps.Dock = DockStyle.Fill;
+            this.splitContainer1.Panel2.Controls.Clear();
+            this.splitContainer1.Panel2.Controls.Add(ucapps);
+        }
+
+        private void btnKeywords_Click(object sender, EventArgs e)
+        {
+            //Hiển thị form /control để thiết lập
+            ucKeywords ucKeyword = new ucKeywords();
+            ucKeyword.Dock = DockStyle.Fill;
+            splitContainer1.Panel2.Controls.Clear();
+            splitContainer1.Panel2.Controls.Add(ucKeyword);
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("exit");
+            DialogResult yesNo = MessageBox.Show("Bạn chắc chắn muốn thoát chương trình?", "Parental Control System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (yesNo == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+        private void chkKeywords_CheckBoxCheckChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Keywords = chkKeywords.Checked;
+            Properties.Settings.Default.Save();
+            this.label1.Text = Properties.Settings.Default.Keywords.ToString();
+        }
+
+        private void chkApps_CheckBoxCheckChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Application = chkApps.Checked;
+            Properties.Settings.Default.Save();
+            this.label1.Text = Properties.Settings.Default.Application.ToString();
+        }
+
+        private void chkTime_CheckBoxCheckChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Time = chkTime.Checked;
+            Properties.Settings.Default.Save();
+
+            this.label1.Text = Properties.Settings.Default.Time.ToString();
         }
     }
 }

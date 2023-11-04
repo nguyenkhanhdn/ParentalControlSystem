@@ -11,15 +11,18 @@ namespace ParentalControlSystem
 {
     public class ParentalController
     {
-        public static void BlockApps(string appName)
+        public static void BlockApps(bool block, string appName)
         {
-            foreach (Process Proc in Process.GetProcesses())
+            if (block)
             {
-                if (Proc.ProcessName.Contains(appName))
+                foreach (Process Proc in Process.GetProcesses())
                 {
-                    Proc.Kill();
+                    if (Proc.ProcessName.Contains(appName))
+                    {
+                        Proc.Kill();
+                    }
                 }
-            }
+            }            
         }
 
         public static void RemoveFirewallRules(string RuleName = "InternetPolicy")

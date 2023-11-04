@@ -45,12 +45,8 @@ namespace ParentalControlSystem
             this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
             this.btnHelp = new System.Windows.Forms.RibbonButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pnlHours = new System.Windows.Forms.RibbonPanel();
-            this.btnHours = new System.Windows.Forms.RibbonButton();
-            this.btnEnableHours = new System.Windows.Forms.RibbonButton();
-            this.btnDisableHours = new System.Windows.Forms.RibbonButton();
             this.pnlSystem = new System.Windows.Forms.RibbonPanel();
-            this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
+            this.btnExit = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
             this.btnHelp2 = new System.Windows.Forms.RibbonButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -62,18 +58,20 @@ namespace ParentalControlSystem
             this.btnOn = new System.Windows.Forms.RibbonButton();
             this.btnOff = new System.Windows.Forms.RibbonButton();
             this.pnlSoftwares = new System.Windows.Forms.RibbonPanel();
-            this.ribbonButton9 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton7 = new System.Windows.Forms.RibbonButton();
+            this.chkKeywords = new System.Windows.Forms.RibbonCheckBox();
+            this.chkApps = new System.Windows.Forms.RibbonCheckBox();
+            this.chkTime = new System.Windows.Forms.RibbonCheckBox();
             this.pnlKeywords = new System.Windows.Forms.RibbonPanel();
             this.btnKeywords = new System.Windows.Forms.RibbonButton();
-            this.btnAllowKWds = new System.Windows.Forms.RibbonButton();
-            this.btnBlockKWds = new System.Windows.Forms.RibbonButton();
+            this.btnApps = new System.Windows.Forms.RibbonButton();
+            this.btnTime = new System.Windows.Forms.RibbonButton();
             this.ribbonTab4 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
             this.btnAbout2 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -100,7 +98,6 @@ namespace ParentalControlSystem
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.SmallImage = global::ParentalControlSystem.Properties.Resources._8168605_settings_system_tools_preferences_icon;
             this.btnSettings.Text = "Thiết lập";
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // ribbonPanel3
             // 
@@ -170,57 +167,23 @@ namespace ParentalControlSystem
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5000;
+            this.timer1.Interval = 15000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pnlHours
-            // 
-            this.pnlHours.Items.Add(this.btnHours);
-            this.pnlHours.Items.Add(this.btnEnableHours);
-            this.pnlHours.Items.Add(this.btnDisableHours);
-            this.pnlHours.Name = "pnlHours";
-            this.pnlHours.Text = "Hẹn giờ";
-            // 
-            // btnHours
-            // 
-            this.btnHours.Image = global::ParentalControlSystem.Properties.Resources.time;
-            this.btnHours.LargeImage = global::ParentalControlSystem.Properties.Resources.time;
-            this.btnHours.Name = "btnHours";
-            this.btnHours.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnHours.SmallImage")));
-            this.btnHours.Text = "Thời gian";
-            // 
-            // btnEnableHours
-            // 
-            this.btnEnableHours.Image = global::ParentalControlSystem.Properties.Resources.On;
-            this.btnEnableHours.LargeImage = global::ParentalControlSystem.Properties.Resources.On;
-            this.btnEnableHours.Name = "btnEnableHours";
-            this.btnEnableHours.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnEnableHours.SmallImage")));
-            this.btnEnableHours.Text = "Bật hẹn giờ";
-            this.btnEnableHours.Click += new System.EventHandler(this.Settings_Click);
-            // 
-            // btnDisableHours
-            // 
-            this.btnDisableHours.Image = global::ParentalControlSystem.Properties.Resources.off;
-            this.btnDisableHours.LargeImage = global::ParentalControlSystem.Properties.Resources.off;
-            this.btnDisableHours.Name = "btnDisableHours";
-            this.btnDisableHours.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnDisableHours.SmallImage")));
-            this.btnDisableHours.Text = "Tắt hẹn giờ";
-            this.btnDisableHours.Click += new System.EventHandler(this.ribbonButton6_Click);
             // 
             // pnlSystem
             // 
-            this.pnlSystem.Items.Add(this.ribbonButton8);
+            this.pnlSystem.Items.Add(this.btnExit);
             this.pnlSystem.Name = "pnlSystem";
             this.pnlSystem.Text = "System";
             // 
-            // ribbonButton8
+            // btnExit
             // 
-            this.ribbonButton8.Image = global::ParentalControlSystem.Properties.Resources.exit_icon_48;
-            this.ribbonButton8.LargeImage = global::ParentalControlSystem.Properties.Resources.exit_icon_48;
-            this.ribbonButton8.Name = "ribbonButton8";
-            this.ribbonButton8.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.SmallImage")));
-            this.ribbonButton8.Text = "Exit";
-            this.ribbonButton8.Click += new System.EventHandler(this.ribbonButton8_Click);
+            this.btnExit.Image = global::ParentalControlSystem.Properties.Resources.exit_icon_48;
+            this.btnExit.LargeImage = global::ParentalControlSystem.Properties.Resources.exit_icon_48;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnExit.SmallImage")));
+            this.btnExit.Text = "Exit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // ribbonPanel10
             // 
@@ -249,8 +212,8 @@ namespace ParentalControlSystem
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
-            this.splitContainer1.Size = new System.Drawing.Size(1002, 545);
-            this.splitContainer1.SplitterDistance = 321;
+            this.splitContainer1.Size = new System.Drawing.Size(951, 545);
+            this.splitContainer1.SplitterDistance = 317;
             this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -260,7 +223,7 @@ namespace ParentalControlSystem
             this.pictureBox1.Image = global::ParentalControlSystem.Properties.Resources.parentalcontrolsys;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(321, 545);
+            this.pictureBox1.Size = new System.Drawing.Size(317, 545);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -280,7 +243,7 @@ namespace ParentalControlSystem
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.OrbImage = global::ParentalControlSystem.Properties.Resources.shield;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ribbon1.Size = new System.Drawing.Size(1002, 167);
+            this.ribbon1.Size = new System.Drawing.Size(951, 167);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab3);
             this.ribbon1.Tabs.Add(this.ribbonTab4);
@@ -293,7 +256,6 @@ namespace ParentalControlSystem
             this.ribbonTab3.Panels.Add(this.pnlNetworks);
             this.ribbonTab3.Panels.Add(this.pnlSoftwares);
             this.ribbonTab3.Panels.Add(this.pnlKeywords);
-            this.ribbonTab3.Panels.Add(this.pnlHours);
             this.ribbonTab3.Panels.Add(this.pnlSystem);
             this.ribbonTab3.Text = "Trang chủ";
             // 
@@ -312,7 +274,6 @@ namespace ParentalControlSystem
             this.btnHome.Name = "btnHome";
             this.btnHome.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnHome.SmallImage")));
             this.btnHome.Text = "Home";
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click_1);
             // 
             // btnOn
             // 
@@ -334,32 +295,35 @@ namespace ParentalControlSystem
             // 
             // pnlSoftwares
             // 
-            this.pnlSoftwares.Items.Add(this.ribbonButton9);
-            this.pnlSoftwares.Items.Add(this.ribbonButton7);
+            this.pnlSoftwares.Items.Add(this.chkKeywords);
+            this.pnlSoftwares.Items.Add(this.chkApps);
+            this.pnlSoftwares.Items.Add(this.chkTime);
             this.pnlSoftwares.Name = "pnlSoftwares";
             this.pnlSoftwares.Text = "Phền mềm";
             // 
-            // ribbonButton9
+            // chkKeywords
             // 
-            this.ribbonButton9.Image = global::ParentalControlSystem.Properties.Resources._299110_check_sign_icon;
-            this.ribbonButton9.LargeImage = global::ParentalControlSystem.Properties.Resources._299110_check_sign_icon;
-            this.ribbonButton9.Name = "ribbonButton9";
-            this.ribbonButton9.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton9.SmallImage")));
-            this.ribbonButton9.Text = "Cho phép";
+            this.chkKeywords.Name = "chkKeywords";
+            this.chkKeywords.Text = "Chặn các từ khóa";
+            this.chkKeywords.CheckBoxCheckChanged += new System.EventHandler(this.chkKeywords_CheckBoxCheckChanged);
             // 
-            // ribbonButton7
+            // chkApps
             // 
-            this.ribbonButton7.Image = global::ParentalControlSystem.Properties.Resources._299051_ban_sign_icon;
-            this.ribbonButton7.LargeImage = global::ParentalControlSystem.Properties.Resources._299051_ban_sign_icon;
-            this.ribbonButton7.Name = "ribbonButton7";
-            this.ribbonButton7.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton7.SmallImage")));
-            this.ribbonButton7.Text = "Cấm";
+            this.chkApps.Name = "chkApps";
+            this.chkApps.Text = "Cấm một số phần mềm";
+            this.chkApps.CheckBoxCheckChanged += new System.EventHandler(this.chkApps_CheckBoxCheckChanged);
+            // 
+            // chkTime
+            // 
+            this.chkTime.Name = "chkTime";
+            this.chkTime.Text = "Hạn chế thời gian sử dụng";
+            this.chkTime.CheckBoxCheckChanged += new System.EventHandler(this.chkTime_CheckBoxCheckChanged);
             // 
             // pnlKeywords
             // 
             this.pnlKeywords.Items.Add(this.btnKeywords);
-            this.pnlKeywords.Items.Add(this.btnAllowKWds);
-            this.pnlKeywords.Items.Add(this.btnBlockKWds);
+            this.pnlKeywords.Items.Add(this.btnApps);
+            this.pnlKeywords.Items.Add(this.btnTime);
             this.pnlKeywords.Name = "pnlKeywords";
             this.pnlKeywords.Text = "Từ khóa";
             // 
@@ -369,23 +333,26 @@ namespace ParentalControlSystem
             this.btnKeywords.LargeImage = global::ParentalControlSystem.Properties.Resources._299084_book_address_icon;
             this.btnKeywords.Name = "btnKeywords";
             this.btnKeywords.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnKeywords.SmallImage")));
-            this.btnKeywords.Text = "Danh sách";
+            this.btnKeywords.Text = "Từ khóa";
+            this.btnKeywords.Click += new System.EventHandler(this.btnKeywords_Click);
             // 
-            // btnAllowKWds
+            // btnApps
             // 
-            this.btnAllowKWds.Image = global::ParentalControlSystem.Properties.Resources._299110_check_sign_icon;
-            this.btnAllowKWds.LargeImage = global::ParentalControlSystem.Properties.Resources._299110_check_sign_icon;
-            this.btnAllowKWds.Name = "btnAllowKWds";
-            this.btnAllowKWds.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnAllowKWds.SmallImage")));
-            this.btnAllowKWds.Text = "Cho phép";
+            this.btnApps.Image = global::ParentalControlSystem.Properties.Resources._52631_cd_disc_install_setup_software_icon;
+            this.btnApps.LargeImage = global::ParentalControlSystem.Properties.Resources._52631_cd_disc_install_setup_software_icon;
+            this.btnApps.Name = "btnApps";
+            this.btnApps.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnApps.SmallImage")));
+            this.btnApps.Text = "Phần mềm";
+            this.btnApps.Click += new System.EventHandler(this.btnApps_Click);
             // 
-            // btnBlockKWds
+            // btnTime
             // 
-            this.btnBlockKWds.Image = global::ParentalControlSystem.Properties.Resources._299051_ban_sign_icon;
-            this.btnBlockKWds.LargeImage = global::ParentalControlSystem.Properties.Resources._299051_ban_sign_icon;
-            this.btnBlockKWds.Name = "btnBlockKWds";
-            this.btnBlockKWds.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnBlockKWds.SmallImage")));
-            this.btnBlockKWds.Text = "Cấm";
+            this.btnTime.Image = global::ParentalControlSystem.Properties.Resources._9004742_timer_time_clock_alarm_icon1;
+            this.btnTime.LargeImage = global::ParentalControlSystem.Properties.Resources._9004742_timer_time_clock_alarm_icon1;
+            this.btnTime.Name = "btnTime";
+            this.btnTime.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnTime.SmallImage")));
+            this.btnTime.Text = "Thời gian";
+            this.btnTime.Click += new System.EventHandler(this.btnTime_Click);
             // 
             // ribbonTab4
             // 
@@ -434,12 +401,22 @@ namespace ParentalControlSystem
             this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
             this.ribbonButton1.Text = "Exit";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(877, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 22);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 712);
+            this.ClientSize = new System.Drawing.Size(951, 712);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ribbon1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -451,14 +428,13 @@ namespace ParentalControlSystem
             this.MinimizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -491,24 +467,24 @@ namespace ParentalControlSystem
         private System.Windows.Forms.RibbonButton btnHome;
         private System.Windows.Forms.RibbonButton btnOn;
         private System.Windows.Forms.RibbonButton btnOff;
-        private System.Windows.Forms.RibbonButton btnEnableHours;
         private System.Windows.Forms.RibbonPanel ribbonPanel7;
         private System.Windows.Forms.RibbonPanel pnlSystem;
         private System.Windows.Forms.RibbonPanel ribbonPanel9;
         private System.Windows.Forms.RibbonPanel ribbonPanel10;
         private System.Windows.Forms.RibbonButton btnHelp2;
         private System.Windows.Forms.RibbonButton btnAbout2;
-        private System.Windows.Forms.RibbonButton ribbonButton8;
-        private System.Windows.Forms.RibbonButton btnHours;
-        private System.Windows.Forms.RibbonButton btnDisableHours;
+        private System.Windows.Forms.RibbonButton btnExit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RibbonPanel pnlSoftwares;
-        private System.Windows.Forms.RibbonButton ribbonButton7;
-        private System.Windows.Forms.RibbonButton ribbonButton9;
         private System.Windows.Forms.RibbonPanel pnlKeywords;
         private System.Windows.Forms.RibbonButton btnKeywords;
-        private System.Windows.Forms.RibbonButton btnAllowKWds;
-        private System.Windows.Forms.RibbonButton btnBlockKWds;
+        private System.Windows.Forms.RibbonPanel ribbonPanel5;
+        private System.Windows.Forms.RibbonCheckBox chkKeywords;
+        private System.Windows.Forms.RibbonCheckBox chkApps;
+        private System.Windows.Forms.RibbonCheckBox chkTime;
+        private System.Windows.Forms.RibbonButton btnApps;
+        private System.Windows.Forms.RibbonButton btnTime;
+        private System.Windows.Forms.Label label1;
     }
 }
 
