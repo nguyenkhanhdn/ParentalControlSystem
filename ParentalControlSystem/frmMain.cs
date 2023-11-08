@@ -38,14 +38,12 @@ namespace ParentalControlSystem
                 this.chkKeywords.Checked = keywords;
                 this.chkTime.Checked = time;
 
-                bool network = Properties.Settings.Default.Network;
-                if (apps)
+                if (chkTime.Checked)
                 {
-                }
-                else
-                {
+                    timer2.Enabled = true;
                 }
 
+                bool network = Properties.Settings.Default.Network;               
                 if (network)
                 {
                     ParentalController.AddFirewallRules();
@@ -170,18 +168,11 @@ namespace ParentalControlSystem
             Properties.Settings.Default.Time = chkTime.Checked;
             Properties.Settings.Default.Save();
 
-            this.label1.Text = Properties.Settings.Default.Time.ToString();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.listBox1.Items.Clear();
-            foreach(string s in ChromeWindowTitles())
+            if (chkTime.Checked)
             {
-                listBox1.Items.Add(s);
+                timer2.Enabled = true;
             }
         }
-
         private List<string> GetProcesses()
         {
             Process[] processCollection = Process.GetProcesses();
@@ -225,17 +216,31 @@ namespace ParentalControlSystem
             return isExist;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private static int ss = 0;
+        private static int mm = 0;
+        private static int hh = 0;
+        private void timer2_Tick(object sender, EventArgs e)
         {
-            this.listBox1.Items.Clear();
-            Process[] processes = Process.GetProcesses();
-            foreach (var process in processes)
+            ss += 1;
+            if (ss == 60)
             {
-                if (process.MainWindowTitle.Length>0)
-                {
-                    this.listBox1.Items.Add(process.MainWindowTitle);
-                }
+                mm += 1;
+                ss = 0;
             }
+            if (mm == 60)
+            {
+                hh += 1;
+                mm = 0;
+            }
+            if (hh == 2)
+            {
+                timer2.Enabled = false;
+                ParentalController.DoExitWin(ParentalController.EWX_SHUTDOWN);
+            }
+            this.lblSecond.Text = string.Format("Giây: {0,0:D2}", ss);
+            this.lblMinute.Text = string.Format("Phút: {0,0:D2}", mm);
+            this.lblHour.Text = string.Format("Giờ : {0,0:D2}", hh);
+            this.label1.Text = string.Format("{0, 0:D2}:{1,1:D2}:{2,2:D2}", hh,mm,ss);
         }
     }
 }
