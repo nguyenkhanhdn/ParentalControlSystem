@@ -6,23 +6,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace ParentalControlSystem
 {
     public class ParentalController
     {
-        public static void BlockApps(bool block, string appName)
+        public static List<string> GetApplications(string path)
         {
-            if (block)
+            List<string> apps = new List<string>();
+            
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            XmlNode root = doc.DocumentElement;
+            foreach (XmlNode n in root.ChildNodes)
             {
-                foreach (Process Proc in Process.GetProcesses())
+                apps.Add(n.InnerText);
+            }
+            return apps;
+        }
+        public static List<string> GetKeywords(string path)
+        {
+            List<string> keywords = new List<string>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            XmlNode root = doc.DocumentElement;
+            foreach (XmlNode n in root.ChildNodes)
+            {
+                keywords.Append(n.InnerText);
+            }
+            return keywords;
+        }
+
+        public static void BlockApps(string appName)
+        {
+            
+            foreach (Process Proc in Process.GetProcesses())
+            {
+                if (Proc.ProcessName.Contains(appName))
                 {
-                    if (Proc.ProcessName.Contains(appName))
-                    {
-                        Proc.Kill();
-                    }
+                    Proc.Kill();
                 }
-            }            
+            }
+                        
         }
 
         public static void RemoveFirewallRules(string RuleName = "InternetPolicy")

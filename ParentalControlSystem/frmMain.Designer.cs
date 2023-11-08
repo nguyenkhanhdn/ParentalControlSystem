@@ -51,7 +51,9 @@ namespace ParentalControlSystem
             this.btnHelp2 = new System.Windows.Forms.RibbonButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.ribbon1 = new System.Windows.Forms.Ribbon();
+            this.ribbonLabel1 = new System.Windows.Forms.RibbonLabel();
             this.ribbonTab3 = new System.Windows.Forms.RibbonTab();
             this.pnlNetworks = new System.Windows.Forms.RibbonPanel();
             this.btnHome = new System.Windows.Forms.RibbonButton();
@@ -72,8 +74,11 @@ namespace ParentalControlSystem
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -167,7 +172,7 @@ namespace ParentalControlSystem
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 15000;
+            this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pnlSystem
@@ -212,6 +217,7 @@ namespace ParentalControlSystem
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
+            this.splitContainer1.Panel2.Controls.Add(this.listBox1);
             this.splitContainer1.Size = new System.Drawing.Size(951, 545);
             this.splitContainer1.SplitterDistance = 317;
             this.splitContainer1.SplitterWidth = 8;
@@ -227,6 +233,15 @@ namespace ParentalControlSystem
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(59, 41);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(341, 259);
+            this.listBox1.TabIndex = 0;
+            // 
             // ribbon1
             // 
             this.ribbon1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,16 +254,25 @@ namespace ParentalControlSystem
             this.ribbon1.OrbDropDown.BorderRoundness = 8;
             this.ribbon1.OrbDropDown.Location = new System.Drawing.Point(0, 0);
             this.ribbon1.OrbDropDown.Name = "";
-            this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 447);
+            this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 72);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.OrbImage = global::ParentalControlSystem.Properties.Resources.shield;
+            // 
+            // 
+            // 
+            this.ribbon1.QuickAccessToolbar.Items.Add(this.ribbonLabel1);
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbon1.Size = new System.Drawing.Size(951, 167);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab3);
             this.ribbon1.Tabs.Add(this.ribbonTab4);
             this.ribbon1.Text = "ribbon1";
-            this.ribbon1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ribbon1_MouseDown);
+            // 
+            // ribbonLabel1
+            // 
+            this.ribbonLabel1.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.ribbonLabel1.Name = "ribbonLabel1";
+            this.ribbonLabel1.Text = "Parental Control System";
             // 
             // ribbonTab3
             // 
@@ -352,7 +376,6 @@ namespace ParentalControlSystem
             this.btnTime.Name = "btnTime";
             this.btnTime.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnTime.SmallImage")));
             this.btnTime.Text = "Thời gian";
-            this.btnTime.Click += new System.EventHandler(this.btnTime_Click);
             // 
             // ribbonTab4
             // 
@@ -404,18 +427,40 @@ namespace ParentalControlSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(877, 87);
+            this.label1.Location = new System.Drawing.Point(816, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 22);
+            this.label1.Size = new System.Drawing.Size(41, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(689, 78);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 35);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(689, 120);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(87, 29);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 712);
             this.ControlBox = false;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ribbon1);
@@ -430,6 +475,7 @@ namespace ParentalControlSystem
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -485,6 +531,10 @@ namespace ParentalControlSystem
         private System.Windows.Forms.RibbonButton btnApps;
         private System.Windows.Forms.RibbonButton btnTime;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RibbonLabel ribbonLabel1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

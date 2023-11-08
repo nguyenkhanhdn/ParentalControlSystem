@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Management;
 
 namespace ParentalControlSystem
 {
@@ -29,9 +31,15 @@ namespace ParentalControlSystem
         {
             try
             {
+                bool apps = Properties.Settings.Default.Application;
+                bool keywords = Properties.Settings.Default.Keywords;
+                bool time = Properties.Settings.Default.Time;
+                this.chkApps.Checked = apps;
+                this.chkKeywords.Checked = keywords;
+                this.chkTime.Checked = time;
+
                 bool network = Properties.Settings.Default.Network;
-                bool application = Properties.Settings.Default.Application;
-                if (application)
+                if (apps)
                 {
                 }
                 else
@@ -56,25 +64,44 @@ namespace ParentalControlSystem
                 MessageBox.Show("Lỗi xảy ra: " + ex.Message,"Parental Control System",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             
-        }
-        
+        }        
         private void timer1_Tick(object sender, EventArgs e)
         {
-            bool apps = Properties.Settings.Default.Application;
-            bool keywords = Properties.Settings.Default.Keywords;
+            string xmlFile = "..\\..\\apps.xml";
+            string xmlKeywords = "..\\..\\keywords.xml";
+            if (chkApps.Checked)
+            {
+                List<string> applications = ParentalController.GetApplications(xmlFile);
+                foreach(string app in applications)
+                {
+                    if (IsOpen(app))
+                    { 
+                        ParentalController.BlockApps(app); 
+                    }                    
+                }
+            }
+            if (chkKeywords.Checked)
+            {                
+                try
+                {
+                    List<string> keywords = ParentalController.GetApplications(xmlKeywords);
+                    List<string> processes = WindowsByClassFinder.GetProcesses();
+
+                    foreach(string kw in keywords)
+                    {
+                        foreach(string p in processes)
+                        {
+                            if (p.Contains(kw))
+                            {
+                                WindowsByClassFinder.CloseBrowsers();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex){}
+            }
             bool time = Properties.Settings.Default.Time;
-
         }
-
-        private void ribbon1_MouseDown(object sender, MouseEventArgs e)
-        {
-            //if (e.Button == MouseButtons.Left)
-            //{
-            //    ReleaseCapture();
-            //    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            //}
-        }
-
         private void btnAbout2_Click(object sender, EventArgs e)
         {
             AboutBox1 about = new AboutBox1();
@@ -98,11 +125,7 @@ namespace ParentalControlSystem
             this.btnOff.Enabled = true;
             this.btnOn.Enabled = false;
         }
-        private void btnTime_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void btnApps_Click(object sender, EventArgs e)
         {
             ucApps ucapps = new ucApps();
@@ -148,6 +171,71 @@ namespace ParentalControlSystem
             Properties.Settings.Default.Save();
 
             this.label1.Text = Properties.Settings.Default.Time.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.listBox1.Items.Clear();
+            foreach(string s in ChromeWindowTitles())
+            {
+                listBox1.Items.Add(s);
+            }
+        }
+
+        private List<string> GetProcesses()
+        {
+            Process[] processCollection = Process.GetProcesses();
+            List<string> processes = new List<string>();            
+            foreach (Process p in processCollection)
+            {
+                processes.Add(p.ProcessName);
+            }            
+            return processes;
+        }
+        public IEnumerable<string> ChromeWindowTitles()
+        {
+            foreach (var title in WindowsByClassFinder.WindowTitlesForClass("Chrome_WidgetWin_0"))
+                if (!string.IsNullOrWhiteSpace(title))
+                    yield return title;
+
+            foreach (var title in WindowsByClassFinder.WindowTitlesForClass("Chrome_WidgetWin_1"))
+                if (!string.IsNullOrWhiteSpace(title))
+                    yield return title;
+
+            foreach (var title in WindowsByClassFinder.WindowTitlesForClass("MozillaWindowClass"))
+                if (!string.IsNullOrWhiteSpace(title))
+                    yield return title;
+
+            foreach (var title in WindowsByClassFinder.WindowTitlesForClass("IEFrame"))
+                if (!string.IsNullOrWhiteSpace(title))
+                    yield return title;
+        }
+        private bool IsOpen(string process)
+        {
+            bool isExist = false;
+            List<string> openApps = GetProcesses();
+            foreach(string app in openApps)
+            {
+                if (process.Contains(app))
+                {
+                    isExist = true;
+                    break;
+                }
+            }
+            return isExist;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.listBox1.Items.Clear();
+            Process[] processes = Process.GetProcesses();
+            foreach (var process in processes)
+            {
+                if (process.MainWindowTitle.Length>0)
+                {
+                    this.listBox1.Items.Add(process.MainWindowTitle);
+                }
+            }
         }
     }
 }

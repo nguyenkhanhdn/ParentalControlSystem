@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <apps>
   <app id="1">chrome</app>
-  <app id="2">Microsoft edge</app>
   <app id="3">Firefox</app>
   <app id="4">Blue stack</app>
+  <App>msedge</App>
+  <App>browser</App>
 </apps>
