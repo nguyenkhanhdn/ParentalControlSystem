@@ -24,27 +24,20 @@ namespace ParentalControlSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Properties.Settings.Default.Internet = chkInternet.Checked;
-                Properties.Settings.Default.Application = chkApplication.Checked;
-                Properties.Settings.Default.Computer= chkLimitedComputerUse.Checked;
-                Properties.Settings.Default.Save();
-                MessageBox.Show("Thiết lập đã được lưu", "Parental Control System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message,"Parental Control System",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+            Properties.Settings.Default.mm = Convert.ToInt32(comboBox2.Text);
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Thiết lập đã được lưu.", "Parental Control System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Dispose();
+            frmMain main = new frmMain();
+            main.Show();
         }
 
         private void ucSettings_Load(object sender, EventArgs e)
         {            
             try
             {
-                chkInternet.Checked = Properties.Settings.Default.Internet;
-                chkApplication.Checked = Properties.Settings.Default.Application;
-                chkLimitedComputerUse.Checked = Properties.Settings.Default.Computer;
+                this.comboBox2.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

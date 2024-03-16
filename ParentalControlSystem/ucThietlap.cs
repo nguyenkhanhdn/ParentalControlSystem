@@ -16,5 +16,12 @@ namespace ParentalControlSystem
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            frmMain main = new frmMain();
+            main.Show();
+        }
     }
 }

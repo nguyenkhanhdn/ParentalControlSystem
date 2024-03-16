@@ -118,5 +118,77 @@ namespace ParentalControlSystem.Properties {
                 this["Time"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowUseComputer {
+            get {
+                return ((bool)(this["AllowUseComputer"]));
+            }
+            set {
+                this["AllowUseComputer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2023-11-09")]
+        public global::System.DateTime LastDate {
+            get {
+                return ((global::System.DateTime)(this["LastDate"]));
+            }
+            set {
+                this["LastDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int hh {
+            get {
+                return ((int)(this["hh"]));
+            }
+            set {
+                this["hh"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int mm {
+            get {
+                return ((int)(this["mm"]));
+            }
+            set {
+                this["mm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int mm2 {
+            get {
+                return ((int)(this["mm2"]));
+            }
+            set {
+                this["mm2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int hh2 {
+            get {
+                return ((int)(this["hh2"]));
+            }
+            set {
+                this["hh2"] = value;
+            }
+        }
     }
 }

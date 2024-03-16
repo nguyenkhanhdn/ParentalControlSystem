@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>100333_controls_parental_icon %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,6 +64,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResetTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResetTime.Designer.cs">
+      <DependentUpon>frmResetTime.cs</DependentUpon>
     </Compile>
     <Compile Include="ParentalController.cs" />
     <Compile Include="Program.cs" />
@@ -96,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResetTime.resx">
+      <DependentUpon>frmResetTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -218,6 +230,7 @@
     <None Include="Resources\52631_cd_disc_install_setup_software_icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="100333_controls_parental_icon %281%29.ico" />
     <Content Include="apps.xml" />
     <Content Include="keywords.xml" />
     <None Include="Resources\off.png" />

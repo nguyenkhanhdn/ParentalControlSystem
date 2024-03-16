@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Management;
+using System.Threading;
+using System.IO;
 
 namespace ParentalControlSystem
 {
@@ -22,11 +24,13 @@ namespace ParentalControlSystem
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
+
+        //Thời gian cho phép dùng máy tính
+        private int minutes = 0;
         public frmMain()
         {
             InitializeComponent();
         }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             try
@@ -38,11 +42,14 @@ namespace ParentalControlSystem
                 this.chkKeywords.Checked = keywords;
                 this.chkTime.Checked = time;
 
-                if (chkTime.Checked)
-                {
-                    timer2.Enabled = true;
-                }
+                timer2.Enabled = false;
 
+                //if (chkTime.Checked)
+                //{
+                //    timer2.Enabled = true;
+                //}
+
+                //Tắt/bật internet
                 bool network = Properties.Settings.Default.Network;               
                 if (network)
                 {
@@ -55,13 +62,68 @@ namespace ParentalControlSystem
                     ParentalController.RemoveFirewallRules();
                     this.btnOff.Enabled = true;
                     this.btnOn.Enabled = false;
+                }               
+
+                //Thời gian cho phép
+                int hhh = Properties.Settings.Default.hh;
+                int mmm = Properties.Settings.Default.mm;
+                this.lblHH.Text = string.Format("{0,0:D2} giờ",hhh);
+                this.lblMM.Text = string.Format("{0,0:D2} phút", mmm);
+                this.lblDisplay.Text = string.Format("{0,0:D2} giây", sec);
+                minutes = mmm;
+
+                try
+                {
+                    //Thời gian đã dùng
+                    string duration = File.ReadAllText("time.txt");
+                    string[] s = duration.Split(':');
+                    //Ngày hiện tại
+                    string currentDate = DateTime.Today.ToShortDateString();
+                    //Ngày lưu trong file
+                    string oldDate = s[2];
+                    if (currentDate != oldDate)
+                    {
+                        //Reset thời gian sử dụng = 0
+                        min = 0;
+                        sec = 0;
+                    }
+                    else
+                    {
+                        min = Convert.ToInt32(s[0]);
+                        sec = Convert.ToInt32(s[1]);
+                    }
+
+                    //this.lblHour.Text = Convert.ToDouble(min / 60).ToString();
+                    //Properties.Settings.Default.hh2.ToString();
+                    this.lblMinute.Text = min.ToString();
+                    //Properties.Settings.Default.mm2.ToString();
+                    this.lblSecond.Text = sec.ToString();
+                    if (min == minutes)
+                    {
+                        frmResetTime rt = new frmResetTime();
+                        DialogResult dialogResult = rt.ShowDialog();
+                        if (dialogResult == DialogResult.Cancel)
+                        {
+                            ParentalController.DoExitWin(ParentalController.EWX_FORCE);
+                        }
+                        //else { timer2.Enabled = true; }
+                    }
                 }
+                catch (Exception ex)
+                {
+                    string min = "60";
+                    string sec = "0";
+                    string date = DateTime.Today.ToShortDateString();
+                    string time2 = min + ":" + sec + ":" + date;
+                    File.WriteAllText("time.txt", time2);
+                }                
+                mm = Properties.Settings.Default.mm2;
+                hh = Properties.Settings.Default.hh2;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi xảy ra: " + ex.Message,"Parental Control System",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            
+            }            
         }        
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -89,7 +151,7 @@ namespace ParentalControlSystem
                     {
                         foreach(string p in processes)
                         {
-                            if (p.Contains(kw))
+                            if (p.Contains(kw.ToLower()))
                             {
                                 WindowsByClassFinder.CloseBrowsers();
                             }
@@ -153,14 +215,14 @@ namespace ParentalControlSystem
         {
             Properties.Settings.Default.Keywords = chkKeywords.Checked;
             Properties.Settings.Default.Save();
-            this.label1.Text = Properties.Settings.Default.Keywords.ToString();
+            //this.lblDisplay.Text = Properties.Settings.Default.Keywords.ToString();
         }
 
         private void chkApps_CheckBoxCheckChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.Application = chkApps.Checked;
             Properties.Settings.Default.Save();
-            this.label1.Text = Properties.Settings.Default.Application.ToString();
+            //this.lblDisplay.Text = Properties.Settings.Default.Application.ToString();
         }
 
         private void chkTime_CheckBoxCheckChanged(object sender, EventArgs e)
@@ -171,6 +233,9 @@ namespace ParentalControlSystem
             if (chkTime.Checked)
             {
                 timer2.Enabled = true;
+            }else
+            {
+                timer2.Enabled = false;
             }
         }
         private List<string> GetProcesses()
@@ -221,26 +286,59 @@ namespace ParentalControlSystem
         private static int hh = 0;
         private void timer2_Tick(object sender, EventArgs e)
         {
-            ss += 1;
-            if (ss == 60)
+            sec = sec + 1;
+            if (sec == 60)
             {
-                mm += 1;
-                ss = 0;
+                min += 1;
+                sec = 0;
             }
-            if (mm == 60)
+            label1.Text = min.ToString();
+            label2.Text = sec.ToString();
+
+            if (min == minutes)
             {
-                hh += 1;
-                mm = 0;
+                Properties.Settings.Default.AllowUseComputer = false;
+                ParentalController.DoExitWin(ParentalController.EWX_FORCE);
+                //timer2.Enabled = false;                
             }
-            if (hh == 2)
+            //this.lblSecond.Text = string.Format("Giây: {0,0:D2}", ss);
+            //this.lblMinute.Text = string.Format("Phút: {0,0:D2}", mm);
+            //this.lblHour.Text = string.Format("Giờ : {0,0:D2}", hh);
+            
+            this.lblSecond.Text = string.Format("{0,0:D2}", ss);
+            this.lblMinute.Text = string.Format("{0,0:D2}", mm);
+            this.lblHour.Text = string.Format("{0,0:D2}", hh);
+            this.lblDisplay.Text = string.Format("{0, 0:D2}:{1,1:D2}:{2,2:D2}", hh,mm,ss);            
+        }
+        private void btnTime_Click(object sender, EventArgs e)
+        {
+            ucSettings ucSetting = new ucSettings();
+            ucSetting.Dock = DockStyle.Fill;
+            this.splitContainer1.Panel2.Controls.Clear();
+            this.splitContainer1.Panel2.Controls.Add(ucSetting);
+        }
+        private int min = 0;
+        private int sec = 0;
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
             {
-                timer2.Enabled = false;
-                ParentalController.DoExitWin(ParentalController.EWX_SHUTDOWN);
+                File.WriteAllText("time.txt", min.ToString() + ":" + sec.ToString() + ":" + DateTime.Today.ToShortDateString());
+
+                Properties.Settings.Default.hh2 = Convert.ToInt32(lblHour.Text);
+                Properties.Settings.Default.mm2 = Convert.ToInt32(lblMinute.Text);
+                Properties.Settings.Default.Save();
             }
-            this.lblSecond.Text = string.Format("Giây: {0,0:D2}", ss);
-            this.lblMinute.Text = string.Format("Phút: {0,0:D2}", mm);
-            this.lblHour.Text = string.Format("Giờ : {0,0:D2}", hh);
-            this.label1.Text = string.Format("{0, 0:D2}:{1,1:D2}:{2,2:D2}", hh,mm,ss);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }            
+        }
+
+        private void ribbon1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

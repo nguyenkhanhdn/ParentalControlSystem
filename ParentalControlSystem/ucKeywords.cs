@@ -80,6 +80,8 @@ namespace ParentalControlSystem
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            frmMain main = new frmMain();
+            main.Show();
         }
     }
 }
