@@ -33,22 +33,18 @@ namespace ParentalControlSystem
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
+
             try
             {
+                timer2.Enabled = false;
+
                 bool apps = Properties.Settings.Default.Application;
                 bool keywords = Properties.Settings.Default.Keywords;
                 bool time = Properties.Settings.Default.Time;
                 this.chkApps.Checked = apps;
                 this.chkKeywords.Checked = keywords;
-                this.chkTime.Checked = time;
-
-                timer2.Enabled = false;
-
-                //if (chkTime.Checked)
-                //{
-                //    timer2.Enabled = true;
-                //}
-
+                this.chkTime.Checked = time;               
+                
                 //Tắt/bật internet
                 bool network = Properties.Settings.Default.Network;               
                 if (network)
@@ -67,9 +63,9 @@ namespace ParentalControlSystem
                 //Thời gian cho phép
                 int hhh = Properties.Settings.Default.hh;
                 int mmm = Properties.Settings.Default.mm;
-                this.lblHH.Text = string.Format("{0,0:D2} giờ",hhh);
-                this.lblMM.Text = string.Format("{0,0:D2} phút", mmm);
-                this.lblDisplay.Text = string.Format("{0,0:D2} giây", sec);
+                this.lblHH.Text = string.Format("Giờ {0,0:D2} giờ",hhh);
+                this.lblMM.Text = string.Format("Phút {0,0:D2} phút", mmm);
+                this.lblDisplay.Text = string.Format("Giây {0,0:D2} giây", sec);
                 minutes = mmm;
 
                 try
@@ -93,20 +89,31 @@ namespace ParentalControlSystem
                         sec = Convert.ToInt32(s[1]);
                     }
 
-                    //this.lblHour.Text = Convert.ToDouble(min / 60).ToString();
-                    //Properties.Settings.Default.hh2.ToString();
-                    this.lblMinute.Text = min.ToString();
-                    //Properties.Settings.Default.mm2.ToString();
-                    this.lblSecond.Text = sec.ToString();
+                    this.lblSecond.Text = string.Format("{0,0:D2}", sec);
+                    this.lblMinute.Text = string.Format("{0,0:D2}", min);
+                    this.lblHour.Text = string.Format("{0,0:D2}", min/60);
+
                     if (min == minutes)
                     {
                         frmResetTime rt = new frmResetTime();
                         DialogResult dialogResult = rt.ShowDialog();
-                        if (dialogResult == DialogResult.Cancel)
+                        if (dialogResult == DialogResult.OK)
                         {
-                            ParentalController.DoExitWin(ParentalController.EWX_FORCE);
+                            //Thời gian cho phép
+                            mmm = Properties.Settings.Default.mm;
+                            minutes = mmm;
+
+                            this.lblMM.Text = string.Format("Phút {0,0:D2} phút", mmm);
+                            this.lblHH.Text = string.Format("Giờ {0,0:D2} giờ", mmm/60);
+
+                            if (chkTime.Checked) { timer2.Enabled = true; }
+                            else { timer2.Enabled = false; }
                         }
-                        //else { timer2.Enabled = true; }
+                    }
+                    else
+                    {
+                        if (chkTime.Checked) { timer2.Enabled = true; }
+                        else { timer2.Enabled = false; }
                     }
                 }
                 catch (Exception ex)
@@ -292,22 +299,19 @@ namespace ParentalControlSystem
                 min += 1;
                 sec = 0;
             }
-            label1.Text = min.ToString();
-            label2.Text = sec.ToString();
-
+            if (min == 60)
+            {
+                hrs = min/60;
+            }
             if (min == minutes)
             {
                 Properties.Settings.Default.AllowUseComputer = false;
                 ParentalController.DoExitWin(ParentalController.EWX_FORCE);
-                //timer2.Enabled = false;                
             }
-            //this.lblSecond.Text = string.Format("Giây: {0,0:D2}", ss);
-            //this.lblMinute.Text = string.Format("Phút: {0,0:D2}", mm);
-            //this.lblHour.Text = string.Format("Giờ : {0,0:D2}", hh);
             
-            this.lblSecond.Text = string.Format("{0,0:D2}", ss);
-            this.lblMinute.Text = string.Format("{0,0:D2}", mm);
-            this.lblHour.Text = string.Format("{0,0:D2}", hh);
+            this.lblSecond.Text = string.Format("{0,0:D2}", sec);
+            this.lblMinute.Text = string.Format("{0,0:D2}", min);
+            this.lblHour.Text = string.Format("{0,0:D2}", hrs);
             this.lblDisplay.Text = string.Format("{0, 0:D2}:{1,1:D2}:{2,2:D2}", hh,mm,ss);            
         }
         private void btnTime_Click(object sender, EventArgs e)
@@ -319,26 +323,22 @@ namespace ParentalControlSystem
         }
         private int min = 0;
         private int sec = 0;
-
+        private int hrs = 0;
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
-                File.WriteAllText("time.txt", min.ToString() + ":" + sec.ToString() + ":" + DateTime.Today.ToShortDateString());
-
-                Properties.Settings.Default.hh2 = Convert.ToInt32(lblHour.Text);
-                Properties.Settings.Default.mm2 = Convert.ToInt32(lblMinute.Text);
-                Properties.Settings.Default.Save();
+                //Lưu thời gian đã sử dụng
+                string s = min.ToString() + ":" + sec.ToString() + ":" + DateTime.Today.ToShortDateString();
+                File.WriteAllText("time.txt", s);       
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }            
+            }           
         }
-
         private void ribbon1_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

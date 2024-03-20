@@ -224,8 +224,8 @@ namespace ParentalControlSystem
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
-            this.splitContainer1.Size = new System.Drawing.Size(1330, 545);
-            this.splitContainer1.SplitterDistance = 443;
+            this.splitContainer1.Size = new System.Drawing.Size(1570, 545);
+            this.splitContainer1.SplitterDistance = 522;
             this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -235,7 +235,7 @@ namespace ParentalControlSystem
             this.pictureBox1.Image = global::ParentalControlSystem.Properties.Resources.parentalcontrolsys;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(443, 545);
+            this.pictureBox1.Size = new System.Drawing.Size(522, 545);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -259,7 +259,7 @@ namespace ParentalControlSystem
             // 
             this.ribbon1.QuickAccessToolbar.Items.Add(this.ribbonLabel1);
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ribbon1.Size = new System.Drawing.Size(1330, 167);
+            this.ribbon1.Size = new System.Drawing.Size(1570, 167);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab3);
             this.ribbon1.Tabs.Add(this.ribbonTab4);
@@ -508,7 +508,7 @@ namespace ParentalControlSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 712);
+            this.ClientSize = new System.Drawing.Size(1570, 712);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

@@ -32,11 +32,11 @@ namespace ParentalControlSystem
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,32 @@ namespace ParentalControlSystem
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thời gian sử dụng máy tính";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(197, 117);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(119, 30);
+            this.textBox1.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(67, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 25);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Mật khẩu:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(67, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 25);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Thời gian:";
+            // 
             // comboBox2
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -93,6 +119,7 @@ namespace ParentalControlSystem
             this.comboBox2.Items.AddRange(new object[] {
             "3",
             "5",
+            "10",
             "15",
             "30",
             "45",
@@ -100,7 +127,11 @@ namespace ParentalControlSystem
             "90",
             "120",
             "150",
-            "180"});
+            "180",
+            "210",
+            "240",
+            "245",
+            "260"});
             this.comboBox2.Location = new System.Drawing.Point(197, 55);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(119, 33);
@@ -114,32 +145,6 @@ namespace ParentalControlSystem
             this.label2.Size = new System.Drawing.Size(50, 25);
             this.label2.TabIndex = 27;
             this.label2.Text = "phút";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 25);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Thời gian:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 122);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 25);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Mật khẩu:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(197, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(119, 30);
-            this.textBox1.TabIndex = 30;
             // 
             // frmResetTime
             // 
